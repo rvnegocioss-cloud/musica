@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafael Abrão — Voz e violão</title>
+<meta name="description" content="Rafael Abrão, voz e violão. 26 anos de palco e estúdio, repertório eclético para bares, eventos corporativos e festas em Uberlândia-MG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root{
+  --petroleo:#12403c; --fundo:#0c302d; --painel:#174b46;
+  --cobre:#e6b47a; --creme:#f5eee2; --salvia:#b4c7c0;
+  --fio:rgba(230,180,122,.30); --fio2:rgba(245,238,226,.12);
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--petroleo);color:var(--creme);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--cobre);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1}
+h2{font-size:clamp(42px,5.4vw,76px);letter-spacing:-.01em}
+.rotulo{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--cobre);margin-bottom:18px}
+.rotulo svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* NAVEGAÇÃO */
+nav{position:sticky;top:0;z-index:20;background:rgba(18,64,60,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--fio2)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
+nav .marca{font-family:var(--serif);font-size:25px}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul a{position:relative;font-size:15px;color:var(--salvia);padding:6px 0;transition:color .2s}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cobre);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav ul a:hover{color:var(--cobre)}
+nav ul a:hover::after{transform:scaleX(1)}
+
+/* TOPO */
+.topo{position:relative;overflow:hidden;padding:84px 0 110px}
+.topo .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.topo h1{font-size:clamp(84px,12vw,184px);line-height:.86;letter-spacing:-.025em;margin:6px 0 30px}
+.topo .abre{font-size:clamp(18px,1.7vw,21px);max-width:30em;color:var(--salvia)}
+.repertorio{margin-top:26px;max-width:24em;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.1vw,28px);line-height:1.3;color:var(--creme)}
+.acoes{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+
+/* botões: sobem e acendem ao passar o ponteiro */
+.btn{position:relative;display:inline-flex;align-items:center;padding:15px 26px;border:1px solid var(--cobre);font-size:15.5px;font-weight:600;overflow:hidden;transition:transform .2s,box-shadow .25s,background .25s,color .25s}
+.btn::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .55s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px -12px rgba(230,180,122,.55)}
+.btn:hover::before{left:120%}
+.btn:active{transform:translateY(0)}
+.btn.cheio{background:var(--cobre);color:var(--fundo)}
+.btn.cheio:hover{background:#f4cc9c}
+.btn:not(.cheio):hover{background:var(--cobre);color:var(--fundo)}
+
+/* foto com profundidade 3D: inclina com o ponteiro */
+.palco{perspective:1200px;justify-self:end;width:min(100%,430px)}
+.retrato{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;will-change:transform}
+.retrato img{width:100%;height:auto;border:1px solid var(--fio);box-shadow:0 40px 80px -30px rgba(0,0,0,.55)}
+.retrato .aro{position:absolute;inset:0;border:1px solid var(--cobre);transform:translate3d(22px,22px,-70px);opacity:.7}
+.retrato .selo{position:absolute;left:-34px;bottom:54px;transform:translateZ(70px);background:var(--fundo);border:1px solid var(--fio);padding:14px 20px;font-family:var(--serif);font-size:25px;line-height:1.05;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+.retrato .selo small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--salvia);margin-top:4px}
+
+/* violão em traço, no canto do topo */
+.violao{position:absolute;right:-40px;bottom:-150px;width:min(46vw,520px);height:auto;transform:rotate(24deg);opacity:.2;pointer-events:none;z-index:0;overflow:visible}
+.violao *{fill:none;stroke:var(--cobre);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+
+/* CORDAS EM 3D: faixa que responde ao ponteiro */
+.cordas3d{position:relative;height:250px;background:var(--fundo);border-top:1px solid var(--fio2);border-bottom:1px solid var(--fio2);overflow:hidden}
+.cordas3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cordas3d .dica{position:absolute;left:32px;bottom:20px;display:flex;align-items:center;gap:14px;font-size:14.5px;color:var(--salvia)}
+.cordas3d button{font:inherit;font-weight:600;color:var(--cobre);background:none;border:1px solid var(--fio);padding:7px 14px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.cordas3d button:hover{background:var(--cobre);color:var(--fundo);transform:translateY(-2px)}
+
+/* SEÇÕES */
+section{padding:118px 0}
+section.fundo{background:var(--fundo)}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:54px}
+.cab p{max-width:26em;color:var(--salvia)}
+
+.historia{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:start}
+.historia p{max-width:34em;margin-bottom:20px;color:#e3ddd0}
+blockquote{position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(26px,2.7vw,36px);line-height:1.22;margin:34px 0 34px;padding-left:38px}
+blockquote::before{content:"\201C";position:absolute;left:0;top:-6px;font-size:64px;line-height:1;color:var(--cobre);font-style:normal}
+blockquote cite{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-size:14.5px;color:var(--salvia)}
+.lembrancas{display:grid;gap:22px}
+/* fotos sempre na proporção original, sem corte */
+figure img{width:100%;height:auto;border:1px solid var(--fio);cursor:zoom-in;transition:border-color .25s}
+figure img:hover{border-color:var(--cobre)}
+figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
+
+/* galeria: todas as fotos são 9:16 e aparecem inteiras */
+.mosaico{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.mosaico a{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border:1px solid var(--fio);transition:border-color .25s,transform .25s,box-shadow .25s}
+.mosaico a.g{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.mosaico img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mosaico a:hover{border-color:var(--cobre);transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(0,0,0,.7)}
+.mosaico a:hover img{transform:scale(1.03)}
+.mosaico a.mais{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:var(--painel);font-family:var(--serif);font-size:clamp(22px,2.1vw,30px);line-height:1.05}
+.mosaico a.mais span{font-family:var(--sans);font-size:14px;color:var(--cobre);margin-top:10px}
+.mosaico a.mais:hover{background:var(--cobre);color:var(--fundo)}
+.mosaico a.mais:hover span{color:var(--fundo)}
+
+/* onde eu toco: lista em linhas, como um setlist */
+.setlist{list-style:none;border-bottom:1px solid var(--fio2)}
+.setlist li{display:grid;grid-template-columns:minmax(240px,1fr) 1.5fr;gap:40px;align-items:baseline;padding:28px 14px;border-top:1px solid var(--fio2);transition:background .25s,padding .25s}
+.setlist li:hover{background:rgba(230,180,122,.07);padding-left:26px}
+.setlist h3{font-size:clamp(30px,3.4vw,46px);transition:color .25s}
+.setlist li:hover h3{color:var(--cobre)}
+.setlist p{max-width:32em;color:var(--salvia)}
+.trio{display:grid;grid-template-columns:.8fr 1fr 1fr;gap:12px;margin-top:54px;align-items:start}
+.trio img{width:100%;height:auto;border:1px solid var(--fio);cursor:zoom-in;transition:border-color .25s}
+.trio img:hover{border-color:var(--cobre)}
+
+/* vídeo */
+.video{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--fio);overflow:hidden;box-shadow:0 50px 90px -40px rgba(0,0,0,.6)}
+.video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.video.capa{cursor:pointer}
+.video.capa::after{content:"";position:absolute;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;border:1px solid var(--cobre);background:rgba(12,48,45,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e6b47a' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/34px no-repeat;transition:transform .25s}
+.video.capa:hover::after{transform:scale(1.1)}
+.video-nota{margin-top:14px;font-size:14.5px;color:var(--salvia)}
+.video-nota a{color:var(--cobre);border-bottom:1px solid var(--fio)}
+.video-nota a:hover{border-color:var(--cobre)}
+
+/* CONTATO */
+.contato{padding:130px 0 120px}
+.contato h2{font-size:clamp(52px,8.4vw,128px);line-height:.92;letter-spacing:-.02em;max-width:11em}
+.contato .acoes{margin-top:44px}
+footer{padding:30px 0 40px;border-top:1px solid var(--fio2);font-size:14.5px;color:var(--salvia)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* imagem ampliada */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,30,28,.92);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--fio)}
+.lb button{position:absolute;top:16px;right:22px;background:none;border:0;color:var(--creme);font-size:36px;line-height:1;cursor:pointer}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .topo{padding:48px 0 70px}
+  .topo .wrap,.historia{grid-template-columns:1fr}
+  .palco{justify-self:start;width:min(100%,380px)}
+  .retrato .selo{left:14px;bottom:18px}
+  .violao{opacity:.12;width:74vw;right:-90px}
+  section{padding:80px 0}
+  .mosaico{grid-template-columns:repeat(3,1fr)}
+  .setlist li{grid-template-columns:1fr;gap:8px}
+  .cordas3d{height:190px}
+}
+@media(max-width:560px){.trio{grid-template-columns:1fr}.mosaico{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#topo" class="marca">Rafael Abrão</a>
+  <ul>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#hoje">Shows de hoje</a></li>
+    <li><a href="#ocasioes">Onde eu toco</a></li>
+    <li><a href="#live">Live</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</div></nav>
+
+<header class="topo" id="topo">
+<svg class="violao" viewBox="0 0 240 640" aria-hidden="true">
+  <path d="M102 318C80 318 50 322 46 356C43 388 62 402 62 424C62 450 22 462 20 528C18 584 66 614 120 614C174 614 222 584 220 528C218 462 178 450 178 424C178 402 197 388 194 356C190 322 160 318 138 318Z" transform="translate(120 466) scale(1.09) translate(-120 -466)" opacity=".55" stroke-width=".8"/>
+  <path d="M102 318C80 318 50 322 46 356C43 388 62 402 62 424C62 450 22 462 20 528C18 584 66 614 120 614C174 614 222 584 220 528C218 462 178 450 178 424C178 402 197 388 194 356C190 322 160 318 138 318Z" transform="translate(120 466) scale(1.19) translate(-120 -466)" opacity=".36" stroke-width=".8"/>
+  <path d="M102 318C80 318 50 322 46 356C43 388 62 402 62 424C62 450 22 462 20 528C18 584 66 614 120 614C174 614 222 584 220 528C218 462 178 450 178 424C178 402 197 388 194 356C190 322 160 318 138 318Z" transform="translate(120 466) scale(1.30) translate(-120 -466)" opacity=".22" stroke-width=".8"/>
+  <path d="M102 318C80 318 50 322 46 356C43 388 62 402 62 424C62 450 22 462 20 528C18 584 66 614 120 614C174 614 222 584 220 528C218 462 178 450 178 424C178 402 197 388 194 356C190 322 160 318 138 318" stroke-width="1.8"/>
+  <path d="M106 16H134L137 88H103Z" stroke-width="1.6"/>
+  <circle cx="98" cy="28" r="3.2"/><circle cx="142" cy="28" r="3.2"/><circle cx="98" cy="48" r="3.2"/><circle cx="142" cy="48" r="3.2"/><circle cx="98" cy="68" r="3.2"/><circle cx="142" cy="68" r="3.2"/>
+  <path d="M105 88L102 396M135 88L138 396M102 396H138" stroke-width="1.6"/>
+  <circle cx="120" cy="150" r="2"/><circle cx="120" cy="196" r="2"/><circle cx="120" cy="236" r="2"/><circle cx="120" cy="270" r="2"/>
+  <circle cx="120" cy="442" r="31" stroke-width="1.8"/><circle cx="120" cy="442" r="22" opacity=".6"/><circle cx="120" cy="442" r="13" opacity=".35"/>
+  <path d="M90 540H150" stroke-width="5"/>
+  <path d="M109.0 40L102.0 540M113.4 40L109.2 540M117.8 40L116.4 540M122.2 40L123.6 540M126.6 40L130.8 540M131.0 40L138.0 540" stroke-width=".7"/>
+</svg>
+<div class="wrap">
+  <div>
+    <span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></svg>Voz e violão, repertório eclético</span>
+    <h1>Rafael<br>Abrão</h1>
+    <p class="abre">26 anos de palco e estúdio. Voz, violão e um repertório que conquista qualquer plateia, em Uberlândia-MG e onde o seu evento estiver.</p>
+    <p class="repertorio">Pop rock nacional e internacional, pagode, samba, axé, forró, sertanejo raiz e muito mais.</p>
+    <div class="acoes">
+      <a class="btn cheio" href="https://wa.me/5534996775156?text=Ol%C3%A1%2C%20Rafael!%20Quero%20um%20or%C3%A7amento%20de%20show." target="_blank" rel="noopener">Contratar para show</a>
+      <a class="btn" href="https://www.instagram.com/rafaelvozz/" target="_blank" rel="noopener">Instagram @rafaelvozz</a>
+    </div>
+  </div>
+  <div class="palco" id="palco">
+    <div class="retrato">
+      <div class="aro" aria-hidden="true"></div>
+      <img src="instagram/DFiV76Tpny1.jpg" width="640" height="1136" alt="Rafael Abrão cantando ao microfone, com o violão">
+      <div class="selo">26 anos<small>de palco e estúdio</small></div>
+    </div>
+  </div>
+</div>
+</header>
+
+<div class="cordas3d" id="cordas3d">
+  <canvas aria-hidden="true"></canvas>
+  <div class="dica"><span>Passe o ponteiro nas cordas.</span><button type="button" id="som" aria-pressed="false">Ligar som</button></div>
+</div>
+
+<section id="historia"><div class="wrap historia">
+  <div>
+    <span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>Minha história</span>
+    <h2>Uma vida no palco</h2>
+    <blockquote>Foram 26 anos trabalhando com música, gravando em estúdios e nos palcos.<cite>Rafael Abrão, no Instagram</cite></blockquote>
+    <p>Minha escola foi a estrada. Com Lísias e Banda vivi anos de palco, viagens e grandes eventos, ao lado de músicos que viraram família.</p>
+    <blockquote>Tivemos o privilégio de acompanhar e cantar junto com Alexandre Pires. Outra lembrança maravilhosa dos tempos de Lísias e Banda. Saudades, pai.<cite>Sobre a confraternização da Arcom</cite></blockquote>
+    <p>Hoje levo essa bagagem para cada apresentação: voz e violão, repertório eclético e a leitura de público de quem tem 26 anos de palco.</p>
+  </div>
+  <div class="lembrancas">
+    <figure><img class="zoom" src="instagram/DYuuIsUFFdH.jpg" width="720" height="540" alt="Participação de Alexandre Pires com Lísias e Banda" loading="lazy"><figcaption>Com Alexandre Pires, na confraternização da Arcom.</figcaption></figure>
+    <figure><img class="zoom" src="instagram/DYVkt6dIT7v.jpg" width="640" height="360" alt="Lísias e Banda no palco" loading="lazy"><figcaption>No palco com Lísias e Banda: tantas viagens, tantas alegrias.</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="fundo" id="hoje"><div class="wrap">
+  <div class="cab">
+    <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></svg>Shows de hoje</span><h2>Voz, violão e plateia junto</h2></div>
+    <p>Presença de palco, repertório eclético e público cantando junto. Cada foto abre o post no Instagram.</p>
+  </div>
+  <div class="mosaico">
+    <a class="g" href="https://www.instagram.com/p/DDKnu5qputv/" target="_blank" rel="noopener"><img src="instagram/DDKnu5qputv.jpg" alt="Rafael Abrão cantando com o violão" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DasS1tkxIts/" target="_blank" rel="noopener"><img src="instagram/DasS1tkxIts.jpg" alt="Rafael Abrão cantando ao microfone" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DD4heVlpYpn/" target="_blank" rel="noopener"><img src="instagram/DD4heVlpYpn.jpg" alt="Rafael Abrão em evento, com violão e som montado" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DDCcR8AJO6p/" target="_blank" rel="noopener"><img src="instagram/DDCcR8AJO6p.jpg" alt="Rafael Abrão cantando em restaurante" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DCypBq_OcaJ/" target="_blank" rel="noopener"><img src="instagram/DCypBq_OcaJ.jpg" alt="Rafael Abrão tocando guitarra" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DFi8h6GJvQ-/" target="_blank" rel="noopener"><img src="instagram/DFi8h6GJvQ-.jpg" alt="Show em festa de carnaval" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DCHEWHPJkp7/" target="_blank" rel="noopener"><img src="instagram/DCHEWHPJkp7.jpg" alt="Rafael Abrão tocando violão durante o dia" loading="lazy"></a>
+    <a href="https://www.instagram.com/p/DdgQ0kFoHou/" target="_blank" rel="noopener"><img src="instagram/DdgQ0kFoHou.jpg" alt="Rafael Abrão tocando violão em evento ao ar livre" loading="lazy"></a>
+    <a class="mais" href="https://www.instagram.com/rafaelvozz/" target="_blank" rel="noopener">Ver tudo no Instagram<span>@rafaelvozz</span></a>
+  </div>
+</div></section>
+
+<section id="ocasioes"><div class="wrap">
+  <div class="cab">
+    <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.500 4.100 1.300 6L12 16.300 6.600 19.400l1.300-6L3.400 9.300l6-.7z"/></svg>Onde eu toco</span><h2>Música sob medida</h2></div>
+    <p>26 anos de palco a serviço do seu evento, com repertório escolhido para cada ocasião.</p>
+  </div>
+  <ul class="setlist">
+    <li><h3>Bares e restaurantes</h3><p>Música ao vivo que segura a casa cheia, em endereços como Point Barolo e Marcelinho Espetaria.</p></li>
+    <li><h3>Confraternizações</h3><p>Eventos corporativos com repertório elegante e a animação na medida certa.</p></li>
+    <li><h3>Aniversários</h3><p>Festas particulares com a trilha escolhida para os convidados cantarem junto.</p></li>
+    <li><h3>Eventos</h3><p>Carnaval, festas temáticas e datas especiais, com show completo.</p></li>
+  </ul>
+  <div class="trio">
+    <img class="zoom" src="instagram/DGqE_GvO-BE.jpg" width="1440" height="1800" alt="Público animado durante o show" loading="lazy">
+    <img class="zoom" src="instagram/DDuxgWSp3iN-recorte.jpg" width="750" height="751" alt="Agenda semanal de shows de Rafael Abrão" loading="lazy">
+    <img class="zoom" src="instagram/DDMnNa-JETv-recorte.jpg" width="640" height="640" alt="Agenda semanal de shows de Rafael Abrão" loading="lazy">
+  </div>
+</div></section>
+
+<section class="fundo" id="live"><div class="wrap">
+  <div class="cab">
+    <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 6v12M11 9v6M15 4v16M19 8v8"/></svg>Lísias e Banda</span><h2>Live SOS Festejar UDI</h2></div>
+    <p>Gravada em 11/07/2020, com a Banda Lísias. O vídeo começa no minuto 20.</p>
+  </div>
+  <div class="video capa" data-yt="wPSYfv7viOA" data-inicio="1200"><img src="https://i.ytimg.com/vi/wPSYfv7viOA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wPSYfv7viOA/hqdefault.jpg'" alt="Live Banda Lísias, SOS Festejar UDI 2020" loading="lazy"></div>
+  <p class="video-nota">Não carregou? <a href="https://www.youtube.com/watch?v=wPSYfv7viOA&t=1200s" target="_blank" rel="noopener">Abrir no YouTube</a></p>
+</div></section>
+
+<section class="contato" id="contato"><div class="wrap">
+  <span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></svg>Contato para shows</span>
+  <h2>Seu evento merece música de verdade</h2>
+  <div class="acoes">
+    <a class="btn cheio" href="https://wa.me/5534996775156?text=Ol%C3%A1%2C%20Rafael!%20Quero%20um%20or%C3%A7amento%20de%20show." target="_blank" rel="noopener">WhatsApp (34) 99677-5156</a>
+    <a class="btn" href="mailto:rafael.abraovoz@gmail.com?subject=Or%C3%A7amento%20de%20show">rafael.abraovoz@gmail.com</a>
+    <a class="btn" href="https://www.instagram.com/rafaelvozz/" target="_blank" rel="noopener">Instagram @rafaelvozz</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© Rafael Abrão, Uberlândia-MG</span><span>(34) 99677-5156 · rafael.abraovoz@gmail.com</span></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" aria-label="Fechar">&times;</button><img alt=""></div>
+<script>
+(function(){
+  var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // imagem ampliada
+  var lb=document.getElementById('lb'), im=lb.querySelector('img');
+  function fechar(){lb.classList.remove('on');im.removeAttribute('src');}
+  document.querySelectorAll('img.zoom').forEach(function(el){
+    el.addEventListener('click',function(){im.src=el.currentSrc||el.src;im.alt=el.alt;lb.classList.add('on');});
+  });
+  lb.addEventListener('click',fechar);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')fechar();});
+
+  // YouTube: publicado ou em endereço local, o player já vem aberto na página.
+  // Aberto direto do PC (file://) o YouTube recusa o player: o clique abre o YouTube.
+  document.querySelectorAll('.video').forEach(function(f){
+    var q=(f.dataset.inicio?'&start='+f.dataset.inicio:'');
+    if(location.protocol!=='file:'){
+      f.classList.remove('capa');
+      f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?rel=0'+q+'" title="Live Banda Lísias no YouTube" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+      return;
+    }
+    f.addEventListener('click',function(){
+      window.open('https://www.youtube.com/watch?v='+f.dataset.yt+(f.dataset.inicio?'&t='+f.dataset.inicio+'s':''),'_blank','noopener');
+    });
+  });
+
+  // foto do topo: inclina em 3D acompanhando o ponteiro
+  var palco=document.getElementById('palco'), ret=palco.querySelector('.retrato');
+  if(!calmo){
+    palco.addEventListener('pointermove',function(e){
+      var r=palco.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      ret.style.setProperty('--ry',(x*14).toFixed(2)+'deg');
+      ret.style.setProperty('--rx',(-y*10).toFixed(2)+'deg');
+    });
+    palco.addEventListener('pointerleave',function(){ret.style.setProperty('--ry','0deg');ret.style.setProperty('--rx','0deg');});
+  }
+
+  // seis cordas em perspectiva: o ponteiro cruza, a corda vibra (e toca, com o som ligado)
+  var caixa=document.getElementById('cordas3d'), c=caixa.querySelector('canvas'), g=c.getContext('2d');
+  var W=0,H=0,cordas=[],notas=[82.41,110,146.83,196,246.94,329.63],audio=null,ligado=false,antes=null,visivel=true;
+  for(var i=0;i<6;i++)cordas.push({amp:0,fase:Math.random()*6.28,vel:5+i*1.3});
+  function medir(){
+    var d=Math.min(window.devicePixelRatio||1,2);
+    W=caixa.clientWidth;H=caixa.clientHeight;c.width=W*d;c.height=H*d;g.setTransform(d,0,0,d,0,0);
+  }
+  // perto (esquerda, cordas abertas) -> longe (direita, convergindo)
+  function ponto(i,t){
+    var y0=H*(.16+i*.115), y1=H*(.36+i*.034);
+    return {x:-30+(W+60)*t, y:y0+(y1-y0)*t, s:1-.72*t};
+  }
+  function yDaCorda(i,x){var t=(x+30)/(W+60);return ponto(i,Math.max(0,Math.min(1,t))).y;}
+  function tocar(i,forca){
+    cordas[i].amp=Math.min(30,cordas[i].amp+forca);
+    if(!ligado||!audio)return;
+    var o=audio.createOscillator(), v=audio.createGain(), agora=audio.currentTime;
+    o.type='triangle';o.frequency.value=notas[i]*2;
+    v.gain.setValueAtTime(0,agora);v.gain.linearRampToValueAtTime(.16,agora+.008);v.gain.exponentialRampToValueAtTime(.0008,agora+1.5);
+    o.connect(v);v.connect(audio.destination);o.start(agora);o.stop(agora+1.6);
+  }
+  function desenhar(ms){
+    var tempo=ms/1000;
+    g.clearRect(0,0,W,H);
+    for(var i=0;i<6;i++){
+      var k=cordas[i], N=48, ant=null;
+      for(var j=0;j<=N;j++){
+        var t=j/N, p=ponto(i,t);
+        var bal=Math.sin(Math.PI*t)*(k.amp+(calmo?0:1.2))*p.s*Math.sin(tempo*k.vel*6+k.fase);
+        var y=p.y+bal;
+        if(ant){
+          g.beginPath();g.moveTo(ant.x,ant.y);g.lineTo(p.x,y);
+          g.lineWidth=(2.9-i*.36)*p.s+.35;
+          g.strokeStyle='rgba(230,180,122,'+(.16+.62*p.s).toFixed(3)+')';
+          g.stroke();
+        }
+        ant={x:p.x,y:y};
+      }
+      k.amp*=.962;
+    }
+    if(!calmo&&visivel)requestAnimationFrame(desenhar);
+  }
+  caixa.addEventListener('pointermove',function(e){
+    var r=caixa.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+    if(antes){
+      for(var i=0;i<6;i++){
+        var a=antes.y-yDaCorda(i,antes.x), b=y-yDaCorda(i,x);
+        if(a*b<0)tocar(i,Math.min(24,8+Math.abs(y-antes.y)*1.4));
+      }
+    }
+    antes={x:x,y:y};
+  });
+  caixa.addEventListener('pointerleave',function(){antes=null;});
+  var botao=document.getElementById('som');
+  botao.addEventListener('click',function(){
+    ligado=!ligado;
+    if(ligado&&!audio){var A=window.AudioContext||window.webkitAudioContext;if(A)audio=new A();}
+    if(audio&&audio.state==='suspended')audio.resume();
+    botao.textContent=ligado?'Desligar som':'Ligar som';
+    botao.setAttribute('aria-pressed',ligado?'true':'false');
+    if(ligado)tocar(2,14);
+  });
+  window.addEventListener('resize',function(){medir();if(calmo)desenhar(0);});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      var v=es[0].isIntersecting;
+      if(v&&!visivel){visivel=true;requestAnimationFrame(desenhar);}else visivel=v;
+    }).observe(caixa);
+  }
+  medir();requestAnimationFrame(desenhar);
+})();
+</script>
+</body>
+</html>
