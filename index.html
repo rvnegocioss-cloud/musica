@@ -7,13 +7,13 @@
 <meta name="description" content="Rafael Abrão, voz e violão. 26 anos de palco e estúdio, repertório eclético para bares, eventos corporativos e festas em Uberlândia-MG.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&display=swap">
 <style>
 :root{
   --petroleo:#12403c; --fundo:#0c302d; --painel:#174b46;
   --cobre:#e6b47a; --creme:#f5eee2; --salvia:#b4c7c0;
   --fio:rgba(230,180,122,.30); --fio2:rgba(245,238,226,.12);
-  --serif:'Instrument Serif',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
+  --serif:'Marcellus',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -23,14 +23,14 @@ img{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--cobre);outline-offset:3px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1}
-h2{font-size:clamp(42px,5.4vw,76px);letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.2vw,58px);line-height:1.08}
 .rotulo{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--cobre);margin-bottom:18px}
 .rotulo svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
 /* NAVEGAÇÃO */
 nav{position:sticky;top:0;z-index:20;background:rgba(18,64,60,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--fio2)}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
-nav .marca{font-family:var(--serif);font-size:25px}
+nav .marca{font-family:var(--serif);font-size:21px;letter-spacing:.04em}
 nav ul{display:flex;gap:30px;list-style:none}
 nav ul a{position:relative;font-size:15px;color:var(--salvia);padding:6px 0;transition:color .2s}
 nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cobre);transform:scaleX(0);transform-origin:left;transition:transform .25s}
@@ -40,9 +40,9 @@ nav ul a:hover::after{transform:scaleX(1)}
 /* TOPO */
 .topo{position:relative;overflow:hidden;padding:84px 0 110px}
 .topo .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.topo h1{font-size:clamp(84px,12vw,184px);line-height:.86;letter-spacing:-.025em;margin:6px 0 30px}
+.topo h1{font-size:clamp(62px,8.6vw,128px);line-height:.98;letter-spacing:-.01em;margin:6px 0 30px}
 .topo .abre{font-size:clamp(18px,1.7vw,21px);max-width:30em;color:var(--salvia)}
-.repertorio{margin-top:26px;max-width:24em;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.1vw,28px);line-height:1.3;color:var(--creme)}
+.repertorio{margin-top:26px;max-width:24em;font-family:var(--sans);font-style:italic;font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--creme)}
 .acoes{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
 
 /* botões: sobem e acendem ao passar o ponteiro */
@@ -60,19 +60,12 @@ nav ul a:hover::after{transform:scaleX(1)}
 .retrato{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;will-change:transform}
 .retrato img{width:100%;height:auto;border:1px solid var(--fio);box-shadow:0 40px 80px -30px rgba(0,0,0,.55)}
 .retrato .aro{position:absolute;inset:0;border:1px solid var(--cobre);transform:translate3d(22px,22px,-70px);opacity:.7}
-.retrato .selo{position:absolute;left:-34px;bottom:54px;transform:translateZ(70px);background:var(--fundo);border:1px solid var(--fio);padding:14px 20px;font-family:var(--serif);font-size:25px;line-height:1.05;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+.retrato .selo{position:absolute;left:-34px;bottom:54px;transform:translateZ(70px);background:var(--fundo);border:1px solid var(--fio);padding:14px 20px;font-family:var(--serif);font-size:22px;line-height:1.1;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
 .retrato .selo small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--salvia);margin-top:4px}
 
 /* violão em traço, no canto do topo */
 .violao{position:absolute;right:-40px;bottom:-150px;width:min(46vw,520px);height:auto;transform:rotate(24deg);opacity:.2;pointer-events:none;z-index:0;overflow:visible}
 .violao *{fill:none;stroke:var(--cobre);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
-
-/* CORDAS EM 3D: faixa que responde ao ponteiro */
-.cordas3d{position:relative;height:250px;background:var(--fundo);border-top:1px solid var(--fio2);border-bottom:1px solid var(--fio2);overflow:hidden}
-.cordas3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.cordas3d .dica{position:absolute;left:32px;bottom:20px;display:flex;align-items:center;gap:14px;font-size:14.5px;color:var(--salvia)}
-.cordas3d button{font:inherit;font-weight:600;color:var(--cobre);background:none;border:1px solid var(--fio);padding:7px 14px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
-.cordas3d button:hover{background:var(--cobre);color:var(--fundo);transform:translateY(-2px)}
 
 /* SEÇÕES */
 section{padding:118px 0}
@@ -82,7 +75,7 @@ section.fundo{background:var(--fundo)}
 
 .historia{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:start}
 .historia p{max-width:34em;margin-bottom:20px;color:#e3ddd0}
-blockquote{position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(26px,2.7vw,36px);line-height:1.22;margin:34px 0 34px;padding-left:38px}
+blockquote{position:relative;font-family:var(--serif);font-style:normal;font-size:clamp(22px,2.1vw,28px);line-height:1.36;margin:34px 0 34px;padding-left:38px}
 blockquote::before{content:"\201C";position:absolute;left:0;top:-6px;font-size:64px;line-height:1;color:var(--cobre);font-style:normal}
 blockquote cite{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-size:14.5px;color:var(--salvia)}
 .lembrancas{display:grid;gap:22px}
@@ -98,7 +91,7 @@ figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
 .mosaico img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .mosaico a:hover{border-color:var(--cobre);transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(0,0,0,.7)}
 .mosaico a:hover img{transform:scale(1.03)}
-.mosaico a.mais{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:var(--painel);font-family:var(--serif);font-size:clamp(22px,2.1vw,30px);line-height:1.05}
+.mosaico a.mais{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:var(--painel);font-family:var(--serif);font-size:clamp(19px,1.8vw,25px);line-height:1.15}
 .mosaico a.mais span{font-family:var(--sans);font-size:14px;color:var(--cobre);margin-top:10px}
 .mosaico a.mais:hover{background:var(--cobre);color:var(--fundo)}
 .mosaico a.mais:hover span{color:var(--fundo)}
@@ -107,7 +100,7 @@ figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
 .setlist{list-style:none;border-bottom:1px solid var(--fio2)}
 .setlist li{display:grid;grid-template-columns:minmax(240px,1fr) 1.5fr;gap:40px;align-items:baseline;padding:28px 14px;border-top:1px solid var(--fio2);transition:background .25s,padding .25s}
 .setlist li:hover{background:rgba(230,180,122,.07);padding-left:26px}
-.setlist h3{font-size:clamp(30px,3.4vw,46px);transition:color .25s}
+.setlist h3{font-size:clamp(25px,2.6vw,36px);transition:color .25s}
 .setlist li:hover h3{color:var(--cobre)}
 .setlist p{max-width:32em;color:var(--salvia)}
 .trio{display:grid;grid-template-columns:.8fr 1fr 1fr;gap:12px;margin-top:54px;align-items:start}
@@ -126,7 +119,7 @@ figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
 
 /* CONTATO */
 .contato{padding:130px 0 120px}
-.contato h2{font-size:clamp(52px,8.4vw,128px);line-height:.92;letter-spacing:-.02em;max-width:11em}
+.contato h2{font-size:clamp(42px,6vw,92px);line-height:1.04;max-width:12em}
 .contato .acoes{margin-top:44px}
 footer{padding:30px 0 40px;border-top:1px solid var(--fio2);font-size:14.5px;color:var(--salvia)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -147,7 +140,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   section{padding:80px 0}
   .mosaico{grid-template-columns:repeat(3,1fr)}
   .setlist li{grid-template-columns:1fr;gap:8px}
-  .cordas3d{height:190px}
 }
 @media(max-width:560px){.trio{grid-template-columns:1fr}.mosaico{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 20px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -200,11 +192,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </div>
 </header>
-
-<div class="cordas3d" id="cordas3d">
-  <canvas aria-hidden="true"></canvas>
-  <div class="dica"><span>Passe o ponteiro nas cordas.</span><button type="button" id="som" aria-pressed="false">Ligar som</button></div>
-</div>
 
 <section id="historia"><div class="wrap historia">
   <div>
@@ -318,77 +305,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     palco.addEventListener('pointerleave',function(){ret.style.setProperty('--ry','0deg');ret.style.setProperty('--rx','0deg');});
   }
 
-  // seis cordas em perspectiva: o ponteiro cruza, a corda vibra (e toca, com o som ligado)
-  var caixa=document.getElementById('cordas3d'), c=caixa.querySelector('canvas'), g=c.getContext('2d');
-  var W=0,H=0,cordas=[],notas=[82.41,110,146.83,196,246.94,329.63],audio=null,ligado=false,antes=null,visivel=true;
-  for(var i=0;i<6;i++)cordas.push({amp:0,fase:Math.random()*6.28,vel:5+i*1.3});
-  function medir(){
-    var d=Math.min(window.devicePixelRatio||1,2);
-    W=caixa.clientWidth;H=caixa.clientHeight;c.width=W*d;c.height=H*d;g.setTransform(d,0,0,d,0,0);
-  }
-  // perto (esquerda, cordas abertas) -> longe (direita, convergindo)
-  function ponto(i,t){
-    var y0=H*(.16+i*.115), y1=H*(.36+i*.034);
-    return {x:-30+(W+60)*t, y:y0+(y1-y0)*t, s:1-.72*t};
-  }
-  function yDaCorda(i,x){var t=(x+30)/(W+60);return ponto(i,Math.max(0,Math.min(1,t))).y;}
-  function tocar(i,forca){
-    cordas[i].amp=Math.min(30,cordas[i].amp+forca);
-    if(!ligado||!audio)return;
-    var o=audio.createOscillator(), v=audio.createGain(), agora=audio.currentTime;
-    o.type='triangle';o.frequency.value=notas[i]*2;
-    v.gain.setValueAtTime(0,agora);v.gain.linearRampToValueAtTime(.16,agora+.008);v.gain.exponentialRampToValueAtTime(.0008,agora+1.5);
-    o.connect(v);v.connect(audio.destination);o.start(agora);o.stop(agora+1.6);
-  }
-  function desenhar(ms){
-    var tempo=ms/1000;
-    g.clearRect(0,0,W,H);
-    for(var i=0;i<6;i++){
-      var k=cordas[i], N=48, ant=null;
-      for(var j=0;j<=N;j++){
-        var t=j/N, p=ponto(i,t);
-        var bal=Math.sin(Math.PI*t)*(k.amp+(calmo?0:1.2))*p.s*Math.sin(tempo*k.vel*6+k.fase);
-        var y=p.y+bal;
-        if(ant){
-          g.beginPath();g.moveTo(ant.x,ant.y);g.lineTo(p.x,y);
-          g.lineWidth=(2.9-i*.36)*p.s+.35;
-          g.strokeStyle='rgba(230,180,122,'+(.16+.62*p.s).toFixed(3)+')';
-          g.stroke();
-        }
-        ant={x:p.x,y:y};
-      }
-      k.amp*=.962;
-    }
-    if(!calmo&&visivel)requestAnimationFrame(desenhar);
-  }
-  caixa.addEventListener('pointermove',function(e){
-    var r=caixa.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
-    if(antes){
-      for(var i=0;i<6;i++){
-        var a=antes.y-yDaCorda(i,antes.x), b=y-yDaCorda(i,x);
-        if(a*b<0)tocar(i,Math.min(24,8+Math.abs(y-antes.y)*1.4));
-      }
-    }
-    antes={x:x,y:y};
-  });
-  caixa.addEventListener('pointerleave',function(){antes=null;});
-  var botao=document.getElementById('som');
-  botao.addEventListener('click',function(){
-    ligado=!ligado;
-    if(ligado&&!audio){var A=window.AudioContext||window.webkitAudioContext;if(A)audio=new A();}
-    if(audio&&audio.state==='suspended')audio.resume();
-    botao.textContent=ligado?'Desligar som':'Ligar som';
-    botao.setAttribute('aria-pressed',ligado?'true':'false');
-    if(ligado)tocar(2,14);
-  });
-  window.addEventListener('resize',function(){medir();if(calmo)desenhar(0);});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){
-      var v=es[0].isIntersecting;
-      if(v&&!visivel){visivel=true;requestAnimationFrame(desenhar);}else visivel=v;
-    }).observe(caixa);
-  }
-  medir();requestAnimationFrame(desenhar);
 })();
 </script>
 </body>
