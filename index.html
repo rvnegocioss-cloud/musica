@@ -147,6 +147,14 @@ figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
 .video-nota a{color:var(--cobre);border-bottom:1px solid var(--fio)}
 .video-nota a:hover{border-color:var(--cobre)}
 
+.video-capa{position:relative;display:block;max-width:720px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--fio);border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.video-capa img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.video-capa::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.75))}
+.video-capa .play{position:absolute;left:50%;top:44%;z-index:1;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid var(--cobre);background:rgba(27,29,34,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a96a' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/34px no-repeat;transition:transform .25s}
+.video-capa .txt{position:absolute;left:22px;bottom:18px;z-index:1;font-size:14.5px;color:#e4e4e7}
+.video-capa .txt b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:#fff}
+.video-capa:hover img{transform:scale(1.03)}
+.video-capa:hover .play{transform:scale(1.1)}
 /* CONTATO */
 .contato{padding:130px 0 120px}
 .contato h2{font-size:clamp(42px,6vw,92px);line-height:1.04;max-width:12em}
@@ -299,7 +307,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 6v12M11 9v6M15 4v16M19 8v8"/></svg>Lísias e Banda</span><h2>Live SOS Festejar UDI</h2></div>
     <p>Gravada em 11/07/2020, com a Lísias e Banda.</p>
   </div>
-  <div class="video capa" data-yt="wPSYfv7viOA" data-inicio="3585"><img src="https://i.ytimg.com/vi/wPSYfv7viOA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wPSYfv7viOA/hqdefault.jpg'" alt="Live da Lísias e Banda, SOS Festejar UDI 2020" loading="lazy"></div>
+  <a class="video-capa" href="https://www.youtube.com/watch?v=wPSYfv7viOA&t=3585s" target="_blank" rel="noopener">
+    <img src="instagram/DYVkt6dIT7v.jpg" alt="Lísias e Banda no palco" loading="lazy">
+    <span class="play" aria-hidden="true"></span>
+    <span class="txt"><b>Assistir à live no YouTube</b>A partir de 59:45, quando eu entro.</span>
+  </a>
 </div></section>
 
 <section class="contato" id="contato"><div class="wrap">
