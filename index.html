@@ -100,6 +100,14 @@ figcaption{margin-top:10px;font-size:14.5px;color:var(--salvia)}
 .mosaico a.mais:hover{background:var(--cobre);color:var(--fundo)}
 .mosaico a.mais:hover span{color:var(--fundo)}
 
+.mosaico a.vid::after{content:"";position:absolute;left:12px;bottom:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--cobre);background:rgba(12,48,45,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e6b47a' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/20px no-repeat;transition:transform .25s,background-color .25s}
+.mosaico a.vid:hover::after{transform:scale(1.12);background-color:rgba(12,48,45,.95)}
+.mosaico a.g.vid::after{width:58px;height:58px;left:18px;bottom:18px;background-size:28px}
+.lb video{display:none;max-width:100%;max-height:100%;border:1px solid var(--fio);background:#000}
+.lb.video{cursor:default}
+.lb.video video{display:block}
+.lb.video img{display:none}
+
 /* onde eu toco: lista em linhas, como um setlist */
 .setlist{list-style:none;border-bottom:1px solid var(--fio2)}
 .setlist li{display:grid;grid-template-columns:minmax(240px,1fr) 1.5fr;gap:40px;align-items:baseline;padding:28px 14px;border-top:1px solid var(--fio2);transition:background .25s,padding .25s}
@@ -216,17 +224,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section class="fundo" id="hoje"><div class="wrap">
   <div class="cab">
     <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></svg>Shows de hoje</span><h2>Voz, violão e plateia junto</h2></div>
-    <p>Presença de palco, repertório eclético e público cantando junto. Cada foto abre o post no Instagram.</p>
+    <p>Presença de palco, repertório eclético e público cantando junto. Clique em um vídeo para assistir aqui mesmo.</p>
   </div>
   <div class="mosaico">
-    <a class="g" href="https://www.instagram.com/p/DDKnu5qputv/" target="_blank" rel="noopener"><img src="instagram/DDKnu5qputv.jpg" alt="Rafael Abrão cantando com o violão" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DasS1tkxIts/" target="_blank" rel="noopener"><img src="instagram/DasS1tkxIts.jpg" alt="Rafael Abrão cantando ao microfone" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DD4heVlpYpn/" target="_blank" rel="noopener"><img src="instagram/DD4heVlpYpn.jpg" alt="Rafael Abrão em evento, com violão e som montado" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DDCcR8AJO6p/" target="_blank" rel="noopener"><img src="instagram/DDCcR8AJO6p.jpg" alt="Rafael Abrão cantando em restaurante" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DCypBq_OcaJ/" target="_blank" rel="noopener"><img src="instagram/DCypBq_OcaJ.jpg" alt="Rafael Abrão tocando guitarra" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DFi8h6GJvQ-/" target="_blank" rel="noopener"><img src="instagram/DFi8h6GJvQ-.jpg" alt="Show em festa de carnaval" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DCHEWHPJkp7/" target="_blank" rel="noopener"><img src="instagram/DCHEWHPJkp7.jpg" alt="Rafael Abrão tocando violão durante o dia" loading="lazy"></a>
-    <a href="https://www.instagram.com/p/DdgQ0kFoHou/" target="_blank" rel="noopener"><img src="instagram/DdgQ0kFoHou.jpg" alt="Rafael Abrão tocando violão em evento ao ar livre" loading="lazy"></a>
+    <a class="g vid" href="videos/DDKnu5qputv.mp4" data-video="videos/DDKnu5qputv.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DDKnu5qputv.jpg" alt="Rafael Abrão cantando com o violão" loading="lazy"></a>
+    <a class="vid" href="videos/DasS1tkxIts.mp4" data-video="videos/DasS1tkxIts.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DasS1tkxIts.jpg" alt="Rafael Abrão cantando ao microfone" loading="lazy"></a>
+    <a class="vid" href="videos/DD4heVlpYpn.mp4" data-video="videos/DD4heVlpYpn.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DD4heVlpYpn.jpg" alt="Rafael Abrão em evento, com violão e som montado" loading="lazy"></a>
+    <a class="vid" href="videos/DDCcR8AJO6p.mp4" data-video="videos/DDCcR8AJO6p.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DDCcR8AJO6p.jpg" alt="Rafael Abrão cantando em restaurante" loading="lazy"></a>
+    <a class="vid" href="videos/DCypBq_OcaJ.mp4" data-video="videos/DCypBq_OcaJ.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DCypBq_OcaJ.jpg" alt="Rafael Abrão tocando guitarra" loading="lazy"></a>
+    <a class="vid" href="videos/DFi8h6GJvQ-.mp4" data-video="videos/DFi8h6GJvQ-.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DFi8h6GJvQ-.jpg" alt="Show em festa de carnaval" loading="lazy"></a>
+    <a class="vid" href="videos/DCHEWHPJkp7.mp4" data-video="videos/DCHEWHPJkp7.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DCHEWHPJkp7.jpg" alt="Rafael Abrão tocando violão durante o dia" loading="lazy"></a>
+    <a class="vid" href="videos/DdgQ0kFoHou.mp4" data-video="videos/DdgQ0kFoHou.mp4" aria-label="Assistir ao vídeo"><img src="instagram/DdgQ0kFoHou.jpg" alt="Rafael Abrão tocando violão em evento ao ar livre" loading="lazy"></a>
     <a class="mais" href="https://www.instagram.com/rafaelvozz/" target="_blank" rel="noopener">Ver tudo no Instagram<span>@rafaelvozz</span></a>
   </div>
 </div></section>
@@ -252,10 +260,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section class="fundo" id="live"><div class="wrap">
   <div class="cab">
     <div><span class="rotulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 6v12M11 9v6M15 4v16M19 8v8"/></svg>Lísias e Banda</span><h2>Live SOS Festejar UDI</h2></div>
-    <p>Gravada em 11/07/2020, com a Banda Lísias. O vídeo começa no minuto 20.</p>
+    <p>Gravada em 11/07/2020, com a Banda Lísias.</p>
   </div>
   <div class="video capa" data-yt="wPSYfv7viOA" data-inicio="1200"><img src="https://i.ytimg.com/vi/wPSYfv7viOA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wPSYfv7viOA/hqdefault.jpg'" alt="Live Banda Lísias, SOS Festejar UDI 2020" loading="lazy"></div>
-  <p class="video-nota">Não carregou? <a href="https://www.youtube.com/watch?v=wPSYfv7viOA&t=1200s" target="_blank" rel="noopener">Abrir no YouTube</a></p>
 </div></section>
 
 <section class="contato" id="contato"><div class="wrap">
@@ -270,18 +277,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <footer><div class="wrap"><span>© Rafael Abrão, Uberlândia-MG</span><span>(34) 99677-5156 · rafael.abraovoz@gmail.com</span></div></footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" aria-label="Fechar">&times;</button><img alt=""></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Mídia ampliada"><button type="button" aria-label="Fechar">&times;</button><img alt=""><video controls playsinline preload="none"></video></div>
 <script>
 (function(){
   var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // imagem ampliada
   var lb=document.getElementById('lb'), im=lb.querySelector('img');
-  function fechar(){lb.classList.remove('on');im.removeAttribute('src');}
+  var vd=lb.querySelector('video');
+  function fechar(){lb.classList.remove('on','video');im.removeAttribute('src');vd.pause();vd.removeAttribute('src');vd.load();}
+  // vídeos do Instagram tocam aqui mesmo, sem sair da página
+  document.querySelectorAll('a[data-video]').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      vd.src=el.dataset.video;lb.classList.add('on','video');
+      var pr=vd.play();if(pr&&pr.catch)pr.catch(function(){});
+    });
+  });
   document.querySelectorAll('img.zoom').forEach(function(el){
     el.addEventListener('click',function(){im.src=el.currentSrc||el.src;im.alt=el.alt;lb.classList.add('on');});
   });
-  lb.addEventListener('click',fechar);
+  lb.addEventListener('click',function(e){if(e.target!==vd)fechar();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')fechar();});
 
   // YouTube: publicado ou em endereço local, o player já vem aberto na página.
